@@ -33,6 +33,7 @@ class GenericFeedsView(Gtk.Stack):
     def __init__(self, tracker, name, title=None, show_feedlist=False):
         Gtk.Stack.__init__(self,
                            transition_type=Gtk.StackTransitionType.CROSSFADE)
+
         self.name = name
         self.title = title
 
@@ -56,18 +57,18 @@ class GenericFeedsView(Gtk.Stack):
             visible=True,
             stack=self.feed_stack)
         self.stacksidebar.set_size_request(200, -1)
-
+        internal_window = self.stacksidebar.get_children()[0]
+        internal_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         self.listbox = self.stacksidebar.get_children()[0].get_children()[0].get_children()[0]
 
         scrolledWindow = Gtk.ScrolledWindow()
         if show_feedlist:
-            self._box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-            self._box.pack_start(self.stacksidebar, False, True, 0)
-            sep = Gtk.Separator.new(Gtk.Orientation.VERTICAL)
-            self._box.pack_start(sep, False, True, 0)
-            self._box.pack_start(scrolledWindow, True, True, 0)
+            self.paned = Gtk.Paned(
+                orientation=Gtk.Orientation.HORIZONTAL, wide_handle=True)
+            self.paned.pack1(self.stacksidebar, False, False)
+            self.paned.pack2(scrolledWindow, True, True)
             scrolledWindow.add(self.feed_stack)
-            self.add(self._box)
+            self.add(self.paned)
         else:
             self._box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
             self._box.pack_end(self.flowbox, True, True, 0)
