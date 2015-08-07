@@ -50,6 +50,7 @@ class Post(GObject.GObject):
         self.author = self.sanitize_author(cursor['fullname'])
         self.author_email = cursor['author_email']
         self.author_homepage = cursor['author_homepage']
+        self.is_read = cursor['is_read']
 
         # Check cache first
         hashed_url = hashlib.md5(cursor['url'].encode()).hexdigest()

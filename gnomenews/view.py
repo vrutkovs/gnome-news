@@ -205,6 +205,7 @@ class FeedView(Gtk.Stack):
         self.show_all()
 
         self.url = post.url
+        self.is_read = post.is_read
 
     @staticmethod
     @log
@@ -223,6 +224,11 @@ class FeedView(Gtk.Stack):
 
     def mark_post_as_read(self):
         self.emit('post-read', self.url)
+        self.is_read = not self.is_read
+        return False
+
+    def mark_post_as_unread(self):
+        self.is_read = not self.is_read
         return False
 
 

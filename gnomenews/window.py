@@ -98,6 +98,7 @@ class Window(Gtk.ApplicationWindow):
 
         self.show_all()
         self.toolbar._back_button.set_visible(False)
+        self.toolbar._mark_read_button.set_visible(False)
 
     @log
     def view_changed(self, stack, property_name):
@@ -133,6 +134,7 @@ class Window(Gtk.ApplicationWindow):
         self._stack.add_named(self.feed_view, 'feedview')
         self._stack.set_visible_child(self.feed_view)
         self.tracker.post_read_signal = self.feed_view.connect('post-read', self.tracker.mark_post_as_read)
+        self.update_read_button()
 
     @log
     def on_back_button_clicked(self, widget):
@@ -142,3 +144,20 @@ class Window(Gtk.ApplicationWindow):
         self.toolbar.set_state(ToolbarState.MAIN)
         self.feed_view.disconnect(self.tracker.post_read_signal)
         self.feed_view = None
+
+    @log
+    def on_read_button_toggled(self, widget):
+        if self.feed_view.is_read:
+            self.feed_view.mark_post_as_unread()
+        else:
+            self.feed_view.mark_post_as_read()
+        self.update_read_button()
+
+    @log
+    def update_read_button(self):
+        if self.feed_view.is_read:
+            self.toolbar._message_read_image.set_from_icon_name('mail-read-symbolic', 1)
+            self.toolbar._mark_read_button.set_tooltip_text(_("Mark as unread"))
+        else:
+            self.toolbar._message_read_image.set_from_icon_name('mail-unread-symbolic', 1)
+            self.toolbar._mark_read_button.set_tooltip_text(_("Mark as read"))

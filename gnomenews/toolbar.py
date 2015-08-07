@@ -59,6 +59,11 @@ class Toolbar(GObject.GObject):
         self._back_button = self._ui.get_object('back-button')
         self._back_button.connect('clicked', self.window.on_back_button_clicked)
 
+        self._message_read_image = self._ui.get_object('mark-read-image')
+
+        self._mark_read_button = self._ui.get_object('mark-read-button')
+        self._mark_read_button.connect('toggled', self.window.on_read_button_toggled)
+
         self._search_button = self._ui.get_object('search-button')
 
         self.set_state(ToolbarState.MAIN)
@@ -100,6 +105,7 @@ class Toolbar(GObject.GObject):
 
         self._search_button.set_visible(self._state != ToolbarState.SEARCH_VIEW)
         self._back_button.set_visible(self._state == ToolbarState.CHILD_VIEW)
+        self._mark_read_button.set_visible(self._state == ToolbarState.CHILD_VIEW)
         self.add_toggle_button.set_visible(self._state != ToolbarState.CHILD_VIEW)
 
     @log
