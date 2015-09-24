@@ -19,5 +19,5 @@ script:
 - case $TEST in
   pep8) pyflakes gnomenews ;;
   pyflakes) pep8 gnomenews/*.py --ignore=E501 ;;
-  build) docker build -t gnome-news . ;;
+  build) docker build --pull=true -t gnome-news . ;;
   esac
