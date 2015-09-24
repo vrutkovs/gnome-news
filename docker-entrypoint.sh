@@ -11,5 +11,6 @@ export HOME="/home/user"
 export SHELL="/bin/bash"
 export DBUS_SESSION_BUS_ADDRESS=`dbus-daemon --session --print-address --fork`
 
-broadwayd&
-GDK_BACKEND=broadway /opt/gnome-news/gnome-news
+tracker daemon -s
+/usr/libexec/tracker-miner-rss -v=3 &
+/opt/gnome-news/gnome-news -d
