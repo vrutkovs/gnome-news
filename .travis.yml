@@ -1,0 +1,23 @@
+sudo: required
+services: docker
+language: python
+python:
+  - "3.3"
+env:
+ - TEST="pyflakes"
+ - TEST="pep8"
+ - TEST="build"
+
+matrix:
+  allow_failures:
+    - env: TEST="pep8"
+
+install:
+  - pip install pep8 pyflakes --upgrade
+
+script:
+- case $TEST in
+  pep8) pyflakes gnomenews ;;
+  pyflakes) pep8 gnomenews/*.py --ignore=E501 ;;
+  build) docker build -t gnome-news . ;;
+  esac
