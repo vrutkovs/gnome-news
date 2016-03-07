@@ -129,13 +129,16 @@ class FeedView(Gtk.Stack):
                   <h1>%s</h1>
                   <span>%s</span>
                   <p>%s</p>
-                  <div id="footer">""" % (stylesheet.load_contents(None)[1].decode(), post.title, post.author, post.content)
+                  <div id="footer">""" % (stylesheet.load_contents(None)[1].decode(),
+                                          post.title, post.author, post.content)
 
             if post.author_homepage:
-                html += """<p><a href="%s">%s</a></p>""" % (post.author_homepage, post.author_homepage)
+                html += """<p><a href="%s">%s</a></p>""" % (post.author_homepage,
+                                                            post.author_homepage)
 
             if post.author_email:
-                html += """<p><a href="mailto:%s?Subject=%s">%s</a></p>""" % (post.author_email, post.title, post.author_email)
+                html += """<p><a href="mailto:%s?Subject=%s">%s</a></p>""" % (
+                    post.author_email, post.title, post.author_email)
 
             html += """
             <p><a href="%s">View post</a></p>
@@ -158,7 +161,8 @@ class FeedView(Gtk.Stack):
     def _on_webview_decide_policy(web_view, decision, decision_type):
         if decision_type == WebKit2.PolicyDecisionType.NAVIGATION_ACTION:
             uri = decision.get_request().get_uri()
-            if uri != "about:blank" and decision.get_navigation_type() == WebKit2.NavigationType.LINK_CLICKED:
+            if uri != "about:blank" and \
+                    decision.get_navigation_type() == WebKit2.NavigationType.LINK_CLICKED:
                 decision.ignore()
                 try:
                     Gtk.show_uri(None, uri, Gdk.CURRENT_TIME)

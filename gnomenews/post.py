@@ -55,7 +55,8 @@ class Post(GObject.GObject):
 
         # Check cache first
         hashed_url = hashlib.md5(cursor['url'].encode()).hexdigest()
-        self.cached_thumbnail_path = os.path.join(os.path.expanduser(CACHE_PATH), '%s.png' % hashed_url)
+        self.cached_thumbnail_path = os.path.join(
+            os.path.expanduser(CACHE_PATH), '%s.png' % hashed_url)
 
         GLib.idle_add(self.try_to_load_image_from_cache)
 
@@ -115,7 +116,9 @@ class Post(GObject.GObject):
             ctx.set_source_surface(original_surface, 0, 0)
             ctx.paint()
 
+            print("++++++++++ %s" % self.cached_thumbnail_path)
             new_surface.write_to_png(self.cached_thumbnail_path)
+            print("-----------")
 
             self.thumbnail = self.cached_thumbnail_path
             self.emit('info-updated', self)

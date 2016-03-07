@@ -42,6 +42,20 @@ class Tracker(GObject.GObject):
             Gio.DBusSignalFlags.NONE,
             self.on_graph_updated)
         self.sparql = Trackr.SparqlConnection.get(None)
+        self.start_miner()
+
+    @log
+    def start_miner(self):
+        bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+        proxy = Gio.DBusProxy.new_sync(bus, Gio.DBusProxyFlags.NONE, None,
+                                       'org.freedesktop.DBus',
+                                       '/org/freedesktop/DBus',
+                                       'org.freedesktop.DBus', None)
+        args = GLib.Variant('(s)', ("org.freedesktop.Tracker1.Miner.RSS",))
+        try:
+            proxy.call_sync("StartServiceByName", args, 0, -1, None)
+        except Exception as e:
+            print(str(e))
 
     @log
     def get_post_sorted_by_date(self, unread=False, starred=False):

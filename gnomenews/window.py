@@ -69,7 +69,9 @@ class Window(Gtk.ApplicationWindow):
         self.configure_event_handler = self.connect("configure-event", self._on_configure_event)
 
     def _on_window_state_event(self, widget, event):
-        self.settings.set_boolean('window-maximized', 'GDK_WINDOW_STATE_MAXIMIZED' in event.new_window_state.value_names)
+        self.settings.set_boolean(
+            'window-maximized',
+            'GDK_WINDOW_STATE_MAXIMIZED' in event.new_window_state.value_names)
 
     def _on_configure_event(self, widget, event):
         with self.handler_block(self.configure_event_handler):
