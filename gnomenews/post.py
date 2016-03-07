@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 THUMBNAIL_WIDTH = 256
 THUMBNAIL_HEIGHT = 256
 # FIXME: Remove duplication with application.py
-CACHE_PATH = "~/.cache/gnome-news"
+CACHE_PATH = os.path.join(GLib.get_user_cache_dir(), "gnome-news")
 
 NAME_REGEX = re.compile("\(([^\)]+)\)")
 
