@@ -1,0 +1,165 @@
+# Indonesian translation for gnome-news.
+# Copyright (C) 2016 gnome-news's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-news package.
+# Andika Triwidada <atriwidada@gnome.org>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-news master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"news&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-07-14 14:19+0000\n"
+"PO-Revision-Date: 2016-07-25 04:41+0700\n"
+"Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"X-Generator: Poedit 1.8.8\n"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "About"
+msgstr "Tentang"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Quit"
+msgstr "Keluar"
+
+#. TRANSLATORS: the application name
+#: ../data/org.gnome.News.appdata.xml.in.h:2
+#: ../data/org.gnome.News.desktop.in.h:1 ../gnomenews/application.py:37
+#: ../gnomenews/toolbar.py:99 ../gnomenews/window.py:35
+msgid "News"
+msgstr "Berita"
+
+#. TRANSLATORS: one-line description for the app
+#: ../data/org.gnome.News.appdata.xml.in.h:4
+msgid "Feed Reader"
+msgstr "Pembaca Asupan"
+
+#. TRANSLATORS: AppData description marketing paragraph
+#: ../data/org.gnome.News.appdata.xml.in.h:6
+msgid "GNOME News can be used to read news."
+msgstr "GNOME News dapat dipakai untuk membaca berita."
+
+#: ../data/org.gnome.News.desktop.in.h:2
+msgid "Feed reader for GNOME"
+msgstr "Pembaca asupan bagi GNOME"
+
+#: ../data/org.gnome.News.gschema.xml.h:1
+msgid "Window size"
+msgstr "Ukuran jendela"
+
+#: ../data/org.gnome.News.gschema.xml.h:2
+msgid "Window size (width and height)."
+msgstr "Ukuran jendela (panjang dan lebar)."
+
+#: ../data/org.gnome.News.gschema.xml.h:3
+msgid "Window position"
+msgstr "Posisi jendela"
+
+#: ../data/org.gnome.News.gschema.xml.h:4
+msgid "Window position (x and y)."
+msgstr "Posisi jendela (x dan y)."
+
+#: ../data/org.gnome.News.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Jendela termaksimalkan"
+
+#: ../data/org.gnome.News.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "Keadaan jendela termaksimalkan."
+
+#: ../data/ui/empty-view.ui.h:1
+msgid "No Results Found"
+msgstr "Tidak Ada Hasil Yang Ditemukan"
+
+#: ../data/ui/empty-view.ui.h:2
+msgid "Try a different search"
+msgstr "Cobalah pencarian lain"
+
+#: ../data/ui/empty-view.ui.h:3
+msgid "No Starred Articles Found"
+msgstr "Tidak Ditemukan Artikel Yang Dibintangi"
+
+#: ../data/ui/empty-view.ui.h:4
+msgid "You can see your starred articles after marking them"
+msgstr "Anda dapat meliha artikel yang Anda bintangi setelah menandai mereka"
+
+#: ../data/ui/empty-view.ui.h:5
+msgid "No Feed Subscription Found"
+msgstr "Tidak Ditemukan Langganan Asupan"
+
+#: ../data/ui/empty-view.ui.h:6
+msgid "You can subscribe to feeds using the \"+\" button"
+msgstr "Anda dapat berlangganan ke asupan memakai tombol \"+\""
+
+#: ../data/ui/headerbar.ui.h:1
+msgid "Add a new feed"
+msgstr "Tambah asupan baru"
+
+#: ../data/ui/headerbar.ui.h:2
+msgid "Enter feed address to add"
+msgstr "Masukkan alamat asupan yang akan ditambahkan"
+
+#: ../data/ui/headerbar.ui.h:3
+msgid "Add"
+msgstr "Tambah"
+
+#: ../data/ui/headerbar.ui.h:4
+msgid "You are already subscribed to that feed!"
+msgstr "Anda telah berlangganan asupan itu!"
+
+#: ../data/ui/headerbar.ui.h:5
+msgid "Select All"
+msgstr "Pilih Semua"
+
+#: ../data/ui/headerbar.ui.h:6
+msgid "Select None"
+msgstr "Tiada Pilihan"
+
+#: ../data/ui/headerbar.ui.h:7
+msgid "Click on items to select them"
+msgstr "Klik pada butir untuk memilihnya"
+
+#: ../data/ui/headerbar.ui.h:8
+msgid "Mark this article as starred"
+msgstr "Tandai artikel ini sebagi dibintangi"
+
+#: ../data/ui/headerbar.ui.h:9
+msgid "Search"
+msgstr "Cari"
+
+#: ../data/ui/headerbar.ui.h:10
+msgid "Select"
+msgstr "Pilih"
+
+#: ../data/ui/headerbar.ui.h:11
+msgid "Back"
+msgstr "Kembali"
+
+#: ../gnomenews/toolbar.py:96
+#, python-format
+msgid "Searching for \"%s\""
+msgstr "Mencari \"%s\""
+
+#: ../gnomenews/view.py:86 ../gnomenews/view.py:99
+msgid "This article was already read"
+msgstr "Artikel telah dibaca"
+
+#: ../gnomenews/view.py:174
+msgid "New"
+msgstr "Baru"
+
+#: ../gnomenews/view.py:191
+msgid "Feeds"
+msgstr "Asupan"
+
+#: ../gnomenews/view.py:268
+msgid "Unknown feed"
+msgstr "Asupan tak dikenal"
+
+#: ../gnomenews/view.py:361
+msgid "Starred"
+msgstr "Dibintangi"
