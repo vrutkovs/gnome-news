@@ -1,31 +1,27 @@
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Aviary.pl
-# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
-# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
-# gnomepl@aviary.pl
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Polish translation for gnome-news.
+# Copyright © 2015-2016 the gnome-news authors.
+# This file is distributed under the same license as the gnome-news package.
 # Piotr Drąg <piotrdrag@gmail.com>, 2015-2016.
-# Aviary.pl <gnomepl@aviary.pl>, 2015-2016.
+# Aviary.pl <community-poland@mozilla.org>, 2015-2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-news\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-08 15:39+0100\n"
-"PO-Revision-Date: 2016-03-08 15:40+0100\n"
+"POT-Creation-Date: 2016-08-20 16:32+0200\n"
+"PO-Revision-Date: 2016-08-20 16:33+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: Poland\n"
 
 #: ../data/gtk/menus.ui.h:1
 msgid "About"
-msgstr "O programie"
+msgstr "O programie"
 
 #: ../data/gtk/menus.ui.h:2
 msgid "Quit"
@@ -33,7 +29,7 @@ msgstr "Zakończ"
 
 #. TRANSLATORS: the application name
 #: ../data/org.gnome.News.appdata.xml.in.h:2
-#: ../data/org.gnome.News.desktop.in.h:1 ../gnomenews/application.py:36
+#: ../data/org.gnome.News.desktop.in.h:1 ../gnomenews/application.py:37
 #: ../gnomenews/toolbar.py:99 ../gnomenews/window.py:35
 msgid "News"
 msgstr "Wiadomości"
@@ -58,7 +54,7 @@ msgstr "Rozmiar okna"
 
 #: ../data/org.gnome.News.gschema.xml.h:2
 msgid "Window size (width and height)."
-msgstr "Rozmiar okna (szerokość i wysokość)."
+msgstr "Rozmiar okna (szerokość i wysokość)."
 
 #: ../data/org.gnome.News.gschema.xml.h:3
 msgid "Window position"
@@ -66,7 +62,7 @@ msgstr "Położenie okna"
 
 #: ../data/org.gnome.News.gschema.xml.h:4
 msgid "Window position (x and y)."
-msgstr "Położenie okna (na osi X i Y)."
+msgstr "Położenie okna (na osi X i Y)."
 
 #: ../data/org.gnome.News.gschema.xml.h:5
 msgid "Window maximized"
