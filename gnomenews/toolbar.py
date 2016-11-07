@@ -46,7 +46,6 @@ class Toolbar(GObject.GObject):
         self._ui = Gtk.Builder()
         self._ui.add_from_resource('/org/gnome/News/ui/headerbar.ui')
         self.header_bar = self._ui.get_object('header-bar')
-        self.header_bar.set_show_close_button(True)
         self.header_bar.set_custom_title(self._stack_switcher)
 
         self.add_toggle_button = self._ui.get_object('add-toggle-button')
