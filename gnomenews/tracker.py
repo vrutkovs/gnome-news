@@ -107,22 +107,43 @@ class Tracker(GObject.GObject):
         return ret[0]
 
     @log
-    def add_channel(self, url, update_interval=30):
+    def add_channel(self, url, update_interval=30, cancellable=None, callback=None, user_data=None):
         """Add channel to fetching by tracker
 
         Args:
             url (str): URL of the channel.
             update_interval (Optional[int]): Update interval in minutes.
                                              Don't use less than 1 minute.
+            cancellable (Optional[Gio.Cancellable]): Optional Gio.Cancellable
+            callback (Optional[callable]): Optional callback for when the operation
+                                           is finished
+            user_data (Optional[object]): Data to the callback
         """
-        self.sparql.update("""
+
+        query = """
         INSERT {
           _:FeedSettings a mfo:FeedSettings ;
                            mfo:updateInterval %i .
           _:Feed a nie:DataObject, mfo:FeedChannel ;
                    mfo:feedSettings _:FeedSettings ;
                    nie:url "%s" }
-        """ % (update_interval, url), GLib.PRIORITY_DEFAULT, None)
+        """ % (update_interval, url)
+
+        self.sparql.update_async(query, GLib.PRIORITY_DEFAULT, cancellable,
+                                 self._channel_added_cb, (callback, user_data))
+
+    @log
+    def _channel_added_cb(self, connection, result, data):
+
+        (callback, user_data) = data
+
+        try:
+            result = connection.update_finish(result)
+        except GLib.Error:
+            result = False
+
+        if callback:
+            callback(user_data)
 
     @log
     def mark_post_as_read(self, url, data=None):
