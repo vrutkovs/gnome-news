@@ -41,14 +41,37 @@
               </object>
             </child>
             <child>
-              <object class="GtkButton" id="add-button">
+              <object class="GtkStack" id="add-button-stack">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="sensitive">False</property>
-                <property name="label" translatable="yes">Add</property>
-                <style>
-                  <class name="suggested-action"/>
-                </style>
+                <property name="vhomogeneous">True</property>
+                <property name="interpolate_size">True</property>
+                <child>
+                  <object class="GtkButton" id="add-button">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="sensitive">False</property>
+                    <property name="label" translatable="yes">Add</property>
+                    <style>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="name">button</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinner">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="active">True</property>
+                    <property name="valign">center</property>
+                    <property name="halign">start</property>
+                  </object>
+                  <packing>
+                    <property name="name">spinner</property>
+                  </packing>
+                </child>
               </object>
             </child>
           </object>

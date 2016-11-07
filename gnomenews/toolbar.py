@@ -54,6 +54,8 @@ class Toolbar(GObject.GObject):
         self.add_popover.hide()
         self.add_toggle_button.set_popover(self.add_popover)
 
+        self.button_stack = self._ui.get_object('add-button-stack')
+
         self.new_url = self._ui.get_object('new-url')
         self.new_url.connect('changed', self.on_new_url_changed)
         self.add_button = self._ui.get_object('add-button')
@@ -148,7 +150,14 @@ class Toolbar(GObject.GObject):
     @log
     def _add_new_feed(self, button):
         new_url = self.new_url.get_text()
-        self.window.tracker.add_channel(new_url)
+        self.window.tracker.add_channel(new_url, 30, None, self._channel_added)
+        self.button_stack.set_visible_child_name('spinner')
+        self.new_url.set_sensitive(False)
+
+    @log
+    def _channel_added(self, user_data=None):
+        self.button_stack.set_visible_child_name('button')
+        self.new_url.set_sensitive(True)
         self.new_url.set_text('')
         self.add_popover.hide()
 
