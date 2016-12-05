@@ -1,0 +1,165 @@
+# Turkish translation for gnome-news.
+# Copyright (C) 2016 gnome-news's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-news package.
+# Muhammet Kara <muhammetk@gmail.com>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-news master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-07 12:07+0000\n"
+"PO-Revision-Date: 2016-12-05 23:01+0300\n"
+"Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
+"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "About"
+msgstr "Hakkında"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Quit"
+msgstr "Çıkış"
+
+#. TRANSLATORS: the application name
+#: ../data/org.gnome.News.appdata.xml.in.h:2
+#: ../data/org.gnome.News.desktop.in.h:1 ../gnomenews/application.py:37
+#: ../gnomenews/toolbar.py:100 ../gnomenews/window.py:35
+msgid "News"
+msgstr "Haberler"
+
+#. TRANSLATORS: one-line description for the app
+#: ../data/org.gnome.News.appdata.xml.in.h:4
+msgid "Feed Reader"
+msgstr "Özet Akışı Okuyucu"
+
+#. TRANSLATORS: AppData description marketing paragraph
+#: ../data/org.gnome.News.appdata.xml.in.h:6
+msgid "GNOME News can be used to read news."
+msgstr "GNOME Haberler, haberleri okumak için kullanılabilir."
+
+#: ../data/org.gnome.News.desktop.in.h:2
+msgid "Feed reader for GNOME"
+msgstr "GNOME için özet akışı okuyucu"
+
+#: ../data/org.gnome.News.gschema.xml.h:1
+msgid "Window size"
+msgstr "Pencere boyutu"
+
+#: ../data/org.gnome.News.gschema.xml.h:2
+msgid "Window size (width and height)."
+msgstr "Pencere boyutu (genişlik ve yükseklik)."
+
+#: ../data/org.gnome.News.gschema.xml.h:3
+msgid "Window position"
+msgstr "Pencere konumu"
+
+#: ../data/org.gnome.News.gschema.xml.h:4
+msgid "Window position (x and y)."
+msgstr "Pencere konumu (x ve y)."
+
+#: ../data/org.gnome.News.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Pencere ekranı kapladı"
+
+#: ../data/org.gnome.News.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "Pencerenin ekranı kapladığı durum."
+
+#: ../data/ui/empty-view.ui.h:1
+msgid "No Results Found"
+msgstr "Hiçbir Sonuç Bulunamadı"
+
+#: ../data/ui/empty-view.ui.h:2
+msgid "Try a different search"
+msgstr "Başka bir arama yapmayı deneyin"
+
+#: ../data/ui/empty-view.ui.h:3
+msgid "No Starred Articles Found"
+msgstr "Yıldızlanmış Hiçbir Makale Bulunamadı"
+
+#: ../data/ui/empty-view.ui.h:4
+msgid "You can see your starred articles after marking them"
+msgstr "İşaretledikten sonra, yıldızlı makalelerinizi görebilirsiniz"
+
+#: ../data/ui/empty-view.ui.h:5
+msgid "No Feed Subscription Found"
+msgstr "Hiçbir Özet Akışı Aboneliği Bulunamadı"
+
+#: ../data/ui/empty-view.ui.h:6
+msgid "You can subscribe to feeds using the \"+\" button"
+msgstr "\"+\" düğmesini kullanarak özet akışlarına abone olabilirsiniz"
+
+#: ../data/ui/headerbar.ui.h:1
+msgid "Add a new feed"
+msgstr "Yeni bir özet akışı ekleyin"
+
+#: ../data/ui/headerbar.ui.h:2
+msgid "Enter feed address to add"
+msgstr "Eklenecek özet akışı adresini girin"
+
+#: ../data/ui/headerbar.ui.h:3
+msgid "Add"
+msgstr "Ekle"
+
+#: ../data/ui/headerbar.ui.h:4
+msgid "You are already subscribed to that feed!"
+msgstr "Bu özet akışına zaten abonesiniz!"
+
+#: ../data/ui/headerbar.ui.h:5
+msgid "Select All"
+msgstr "Tümünü Seç"
+
+#: ../data/ui/headerbar.ui.h:6
+msgid "Select None"
+msgstr "Hiçbirini Seçme"
+
+#: ../data/ui/headerbar.ui.h:7
+msgid "Click on items to select them"
+msgstr "Seçmek için ögelerin üzerine tıklayın"
+
+#: ../data/ui/headerbar.ui.h:8
+msgid "Mark this article as starred"
+msgstr "Bu makaleyi yıldızlı olarak işaretleyin"
+
+#: ../data/ui/headerbar.ui.h:9
+msgid "Search"
+msgstr "Ara"
+
+#: ../data/ui/headerbar.ui.h:10
+msgid "Select"
+msgstr "Seç"
+
+#: ../data/ui/headerbar.ui.h:11
+msgid "Back"
+msgstr "Geri"
+
+#: ../gnomenews/toolbar.py:97
+#, python-format
+msgid "Searching for \"%s\""
+msgstr "\"%s\" aranıyor"
+
+#: ../gnomenews/view.py:86 ../gnomenews/view.py:99
+msgid "This article was already read"
+msgstr "Bu makale zaten okunmuş"
+
+#: ../gnomenews/view.py:174
+msgid "New"
+msgstr "Yeni"
+
+#: ../gnomenews/view.py:191
+msgid "Feeds"
+msgstr "Özet Akışları"
+
+#: ../gnomenews/view.py:268
+msgid "Unknown feed"
+msgstr "Bilinmeyen özet akışı"
+
+#: ../gnomenews/view.py:361
+msgid "Starred"
+msgstr "Yıldızlı"
