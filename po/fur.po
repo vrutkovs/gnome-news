@@ -1,0 +1,164 @@
+# Friulian translation for gnome-news.
+# Copyright (C) 2017 gnome-news's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-news package.
+# Fabio Tomat <f.t.public@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-news master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-18 14:53+0000\n"
+"PO-Revision-Date: 2017-03-05 22:45+0100\n"
+"Language-Team: Friulian <fur@li.org>\n"
+"Language: fur\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
+"X-Generator: Poedit 1.8.12\n"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "About"
+msgstr "Informazions"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Quit"
+msgstr "Jes"
+
+#. TRANSLATORS: the application name
+#: ../data/org.gnome.News.appdata.xml.in.h:2
+#: ../data/org.gnome.News.desktop.in.h:1 ../gnomenews/application.py:37
+#: ../gnomenews/toolbar.py:100 ../gnomenews/window.py:35
+msgid "News"
+msgstr "Notiziis"
+
+#. TRANSLATORS: one-line description for the app
+#: ../data/org.gnome.News.appdata.xml.in.h:4
+msgid "Feed Reader"
+msgstr "Letôr di feed"
+
+#. TRANSLATORS: AppData description marketing paragraph
+#: ../data/org.gnome.News.appdata.xml.in.h:6
+msgid "GNOME News can be used to read news."
+msgstr "Notiziis GNOME al pues jessi doprât par lei notiziis."
+
+#: ../data/org.gnome.News.desktop.in.h:2
+msgid "Feed reader for GNOME"
+msgstr "Letôr di feed par GNOME"
+
+#: ../data/org.gnome.News.gschema.xml.h:1
+msgid "Window size"
+msgstr "Dimension barcon"
+
+#: ../data/org.gnome.News.gschema.xml.h:2
+msgid "Window size (width and height)."
+msgstr "La dimension dal barcon (largjece e altece)."
+
+#: ../data/org.gnome.News.gschema.xml.h:3
+msgid "Window position"
+msgstr "Posizion barcon"
+
+#: ../data/org.gnome.News.gschema.xml.h:4
+msgid "Window position (x and y)."
+msgstr "La posizion dal barcon (x e y)."
+
+#: ../data/org.gnome.News.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Barcon slargjât"
+
+#: ../data/org.gnome.News.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "Stât barcon slargjât."
+
+#: ../data/ui/empty-view.ui.h:1
+msgid "No Results Found"
+msgstr "Nissun risultât cjatât"
+
+#: ../data/ui/empty-view.ui.h:2
+msgid "Try a different search"
+msgstr "Prove une ricercje diferente"
+
+#: ../data/ui/empty-view.ui.h:3
+msgid "No Starred Articles Found"
+msgstr "Nissun articul cun stele cjatât"
+
+#: ../data/ui/empty-view.ui.h:4
+msgid "You can see your starred articles after marking them"
+msgstr "Tu puedis viodi i tiei articui cun lis stelis dopo vêju segnâts"
+
+#: ../data/ui/empty-view.ui.h:5
+msgid "No Feed Subscription Found"
+msgstr "Nissune sotscrizion a feed cjatade"
+
+#: ../data/ui/empty-view.ui.h:6
+msgid "You can subscribe to feeds using the \"+\" button"
+msgstr "Tu puedis sotscriviti ai feed doprant il boton \"+\""
+
+#: ../data/ui/headerbar.ui.h:1
+msgid "Add a new feed"
+msgstr "Zonte un gnûf feed"
+
+#: ../data/ui/headerbar.ui.h:2
+msgid "Enter feed address to add"
+msgstr "Inserìs la direzion dal feed di zontâ"
+
+#: ../data/ui/headerbar.ui.h:3
+msgid "Add"
+msgstr "Zonte"
+
+#: ../data/ui/headerbar.ui.h:4
+msgid "You are already subscribed to that feed!"
+msgstr "Tu âs za sotscrit chel feed!"
+
+#: ../data/ui/headerbar.ui.h:5
+msgid "Select All"
+msgstr "Selezione dut"
+
+#: ../data/ui/headerbar.ui.h:6
+msgid "Select None"
+msgstr "Selezione nuie"
+
+#: ../data/ui/headerbar.ui.h:7
+msgid "Click on items to select them"
+msgstr "Fâs clic sui elements par selezionâju"
+
+#: ../data/ui/headerbar.ui.h:8
+msgid "Mark this article as starred"
+msgstr "Segne chest articul cuntune stele"
+
+#: ../data/ui/headerbar.ui.h:9
+msgid "Search"
+msgstr "Cîr"
+
+#: ../data/ui/headerbar.ui.h:10
+msgid "Select"
+msgstr "Selezione"
+
+#: ../data/ui/headerbar.ui.h:11
+msgid "Back"
+msgstr "Indaûr"
+
+#: ../gnomenews/toolbar.py:97
+#, python-format
+msgid "Searching for \"%s\""
+msgstr "Daûr a cirî \"%s\""
+
+#: ../gnomenews/view.py:86 ../gnomenews/view.py:99
+msgid "This article was already read"
+msgstr "Chest articul al è za stât let"
+
+#: ../gnomenews/view.py:174
+msgid "New"
+msgstr "Gnûf"
+
+#: ../gnomenews/view.py:191
+msgid "Feeds"
+msgstr "Feed"
+
+#: ../gnomenews/view.py:268
+msgid "Unknown feed"
+msgstr "Feed no cognossût"
+
+#: ../gnomenews/view.py:361
+msgid "Starred"
+msgstr "Cun stele"
