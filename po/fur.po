@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-news master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 14:53+0000\n"
-"PO-Revision-Date: 2017-03-05 22:45+0100\n"
+"PO-Revision-Date: 2017-03-05 22:49+0100\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
@@ -80,11 +80,11 @@ msgstr "Prove une ricercje diferente"
 
 #: ../data/ui/empty-view.ui.h:3
 msgid "No Starred Articles Found"
-msgstr "Nissun articul cun stele cjatât"
+msgstr "Nissun articul speciâl cjatât"
 
 #: ../data/ui/empty-view.ui.h:4
 msgid "You can see your starred articles after marking them"
-msgstr "Tu puedis viodi i tiei articui cun lis stelis dopo vêju segnâts"
+msgstr "Tu puedis viodi i tiei articui speciâi dopo vêju segnâts"
 
 #: ../data/ui/empty-view.ui.h:5
 msgid "No Feed Subscription Found"
@@ -124,7 +124,7 @@ msgstr "Fâs clic sui elements par selezionâju"
 
 #: ../data/ui/headerbar.ui.h:8
 msgid "Mark this article as starred"
-msgstr "Segne chest articul cuntune stele"
+msgstr "Segne chest articul come speciâl"
 
 #: ../data/ui/headerbar.ui.h:9
 msgid "Search"
@@ -161,4 +161,4 @@ msgstr "Feed no cognossût"
 
 #: ../gnomenews/view.py:361
 msgid "Starred"
-msgstr "Cun stele"
+msgstr "Speciâl"
