@@ -34,6 +34,7 @@ class Toolbar(GObject.GObject):
     __gsignals__ = {
         'state-changed': (GObject.SignalFlags.RUN_FIRST, None, ()),
         'toggle-starred': (GObject.SignalFlags.RUN_FIRST, None, (bool,)),
+        'toggle-progressbar': (GObject.SignalFlags.RUN_FIRST, None, (bool, )),
     }
 
     @log
@@ -148,6 +149,7 @@ class Toolbar(GObject.GObject):
 
     @log
     def _add_new_feed(self, button):
+        self.emit('toggle-progressbar', True)
         new_url = self.new_url.get_text()
         self.window.tracker.add_channel(new_url, 30, None, self._channel_added)
         self.button_stack.set_visible_child_name('spinner')
@@ -159,6 +161,7 @@ class Toolbar(GObject.GObject):
         self.new_url.set_sensitive(True)
         self.new_url.set_text('')
         self.add_popover.hide()
+        self.emit('toggle-progressbar', False)
 
     @log
     def _update_title(self, post):

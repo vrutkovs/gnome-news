@@ -107,13 +107,18 @@ class Window(Gtk.ApplicationWindow):
         self.search_bar = self._ui.get_object('search_bar')
         self.search_entry = self._ui.get_object('search_entry')
 
-        #self.search_entry.connect('search-changed', self.on_search_changed)
+        self.search_entry.connect('search-changed', self.on_search_changed)
 
         # Header bar
         self.toolbar = Toolbar(self)
         self.set_titlebar(self.toolbar.header_bar)
 
         self.toolbar.connect('toggle-starred', self.toggle_starred)
+
+        # Progress bar
+        self._progressbar = self._ui.get_object('progress_bar')
+        self._progressbar.set_pulse_step(1)
+        self.toolbar.connect('toggle-progressbar', self.toggle_progress_bar)
 
         self._add_views()
 
@@ -148,6 +153,7 @@ class Window(Gtk.ApplicationWindow):
             else:
                 self._stack.add_named(i, i.name)
             i.connect('open-article', self.show_post)
+            i.connect('toggle-progressbar', self.toggle_progress_bar)
 
         self.views.append(view.SearchView(self.tracker))
 
@@ -231,3 +237,11 @@ class Window(Gtk.ApplicationWindow):
             self._stack.set_visible_child(self._stack.previous_view)
             self._stack.previous_view = None
             self._stack.remove(self.search_view)
+
+    @log
+    def toggle_progress_bar(self, widget, show):
+        if show:
+            self._progressbar.show()
+            self._progressbar.pulse()
+        else:
+            self._progressbar.hide()

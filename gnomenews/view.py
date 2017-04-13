@@ -27,6 +27,7 @@ class GenericFeedsView(Gtk.Stack):
 
     __gsignals__ = {
         'open-article': (GObject.SignalFlags.RUN_FIRST, None, (GObject.GObject,)),
+        'toggle-progressbar': (GObject.SignalFlags.RUN_FIRST, None, (bool, )),
     }
 
     @log
@@ -234,6 +235,7 @@ class NewView(GenericFeedsView):
 
     @log
     def update(self, _=None):
+        self.emit('toggle-progressbar', True)
         [self.flowbox.remove(old_feed) for old_feed in self.flowbox.get_children()]
 
         self.posts = self.tracker.get_post_sorted_by_date(unread=True)
@@ -241,6 +243,7 @@ class NewView(GenericFeedsView):
         self.show_all()
 
         self.show_empty_view(len(self.posts) is 0)
+        self.emit('toggle-progressbar', False)
 
 
 class FeedsView(GenericFeedsView):
@@ -269,6 +272,7 @@ class FeedsView(GenericFeedsView):
 
     @log
     def update(self, _=None):
+        self.emit('toggle-progressbar', True)
         new_feeds = self.tracker.get_channels()
         new_feed_urls = [new_feed['url'] for new_feed in new_feeds]
 
@@ -287,6 +291,7 @@ class FeedsView(GenericFeedsView):
                 self._add_new_feed(new_feed)
 
         self.show_empty_view(len(new_feeds) is 0)
+        self.emit('toggle-progressbar', False)
 
     @log
     def _add_new_feed(self, feed):
@@ -306,6 +311,7 @@ class FeedsView(GenericFeedsView):
 
     @log
     def load_posts_for_feed(self, row):
+        self.emit('toggle-progressbar', True)
         feed = row.feed
         # Add a flowbox with the items
         flowbox = Gtk.FlowBox(
@@ -328,6 +334,7 @@ class FeedsView(GenericFeedsView):
         if not feed['title']:
             feed['title'] = _("Unknown feed")
         self.feed_stack.add_titled(flowbox, feed['url'], feed['title'])
+        self.emit('toggle-progressbar', False)
 
     @log
     def delete_channel(self, action, index_variant):
