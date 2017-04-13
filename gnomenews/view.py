@@ -356,7 +356,9 @@ class FeedsView(GenericFeedsView):
             return Gdk.EVENT_STOP
 
     def sort_function(self, row1, row2, _=None):
-        return row1.feed['title'] > row2.feed['title']
+        row1_title = row1.feed['title'] or ''
+        row2_title = row2.feed['title'] or ''
+        return row1_title > row2_title
 
 
 class StarredView(GenericFeedsView):
