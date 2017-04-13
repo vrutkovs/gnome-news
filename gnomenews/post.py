@@ -94,7 +94,7 @@ class Post(GObject.GObject):
                 <h3 style="margin-bottom: 2px">%s</h3>
                 <small style="color: #333">%s</small>
                 <small style="color: #9F9F9F">%s</small>
-            </div>""" % (self.title, self.author, self.content))
+            </div>""" % (self.title, self.author or '', self.content))
 
     @log
     def _draw_thumbnail(self, webview, event):
