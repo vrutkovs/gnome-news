@@ -181,8 +181,20 @@ class FeedView(Gtk.Stack):
         self.show_all()
 
         webview.connect('key_press_event', self.on_key_press)
+        webview.connect('context-menu', self.customize_context_menu)
         self.post = post
         self.url = post.url
+
+    @log
+    def customize_context_menu(self, webview, context_menu, event, hit_test_result):
+        items = context_menu.get_items()
+        labels = [x.get_action().get_label() for x in items]
+        try:
+            reload_index = labels.index('_Reload')
+            context_menu.remove(items[reload_index])
+        except ValueError:
+            pass
+        return False
 
     @staticmethod
     @log
