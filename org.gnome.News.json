@@ -54,7 +54,9 @@
         },
         {
             "name": "gnome-news",
-            "command": "gnome-news",
+            "no-autogen": true,
+            "builddir": true,
+            "buildsystem": "meson",
             "sources": [
                 {
                     "type": "git",

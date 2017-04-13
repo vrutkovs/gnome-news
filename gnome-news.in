@@ -5,14 +5,12 @@ import signal
 import os
 import locale
 import gettext
-
-# Make sure we'll find the pygobject module, even in JHBuild
-sys.path.insert(1, "@pyexecdir@")
-# Make sure we'll find the gnomenews module, even in JHBuild
-sys.path.insert(1, "@pythondir@")
-
 import argparse
 import logging
+
+# Make sure we'll find the gnomenews module, even in flatpak
+sys.path.insert(1, "@pythondir@")
+
 try:
     import gi
 except ImportError:
