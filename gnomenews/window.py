@@ -19,6 +19,7 @@ from gettext import gettext as _
 
 from gnomenews.toolbar import Toolbar, ToolbarState
 from gnomenews.tracker import Tracker
+from gnomenews.post import Post
 from gnomenews import view
 
 from gnomenews import log
@@ -106,7 +107,7 @@ class Window(Gtk.ApplicationWindow):
         self.search_bar = self._ui.get_object('search_bar')
         self.search_entry = self._ui.get_object('search_entry')
 
-        self.search_entry.connect('search-changed', self.on_search_changed)
+        #self.search_entry.connect('search-changed', self.on_search_changed)
 
         # Header bar
         self.toolbar = Toolbar(self)
@@ -146,7 +147,7 @@ class Window(Gtk.ApplicationWindow):
                 self._stack.add_titled(i, i.name, i.title)
             else:
                 self._stack.add_named(i, i.name)
-            i.connect('open-article', self.toolbar._update_title)
+            i.connect('open-article', self.show_post)
 
         self.views.append(view.SearchView(self.tracker))
 
@@ -160,19 +161,57 @@ class Window(Gtk.ApplicationWindow):
                                         GObject.BindingFlags.BIDIRECTIONAL)
 
     @log
-    def _open_article_view(self, post):
+    def show_post(self, view, post, keep_previous_view=False):
+        view.current_post_url = post.url
+        self._open_article_view(post, keep_previous_view)
+
+        # Update title bar
+        self.toolbar._update_title(post)
+
+    @log
+    def _open_article_view(self, post, keep_previous_view):
         self.feed_view = view.FeedView(self.tracker, post)
-        self._stack.previous_view = self._stack.get_visible_child()
+        if not keep_previous_view:
+            self._stack.previous_view = self._stack.get_visible_child()
         self._stack.add_named(self.feed_view, 'feedview')
-        self._stack.set_visible_child(self.feed_view)
 
         self.toolbar.set_starred(post.is_starred)
 
         # Mark the post as read
         self.tracker.mark_post_as_read(post.url)
 
+        self.feed_view.connect('go-back', self.on_back_button_clicked)
+        self.feed_view.connect('show-prev-post', self.show_previous_post)
+        self.feed_view.connect('show-next-post', self.show_next_post)
+
+        self._stack.set_visible_child(self.feed_view)
+
     @log
-    def on_back_button_clicked(self, widget):
+    def show_previous_post(self, widget):
+        view = self._stack.previous_view
+        if not view:
+            return
+
+        try:
+            new_post = view.get_prev_post()
+            self.show_post(view, Post(new_post), keep_previous_view=True)
+        except IndexError:
+            pass
+
+    @log
+    def show_next_post(self, widget):
+        view = self._stack.previous_view
+        if not view:
+            return
+
+        try:
+            new_post = view.get_next_post()
+            self.show_post(view, Post(new_post), keep_previous_view=True)
+        except IndexError:
+            pass
+
+    @log
+    def on_back_button_clicked(self, widget=None):
         self._stack.set_visible_child(self._stack.previous_view)
         self._stack.previous_view = None
         self._stack.remove(self.feed_view)

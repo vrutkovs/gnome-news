@@ -101,6 +101,26 @@ class GenericFeedsView(Gtk.Stack):
         self.emit('open-article', post)
 
     @log
+    def get_next_post(self):
+        post_urls = [Post(x).url for x in self.posts]
+        try:
+            current_post_index = post_urls.index(self.current_post_url)
+        except ValueError:
+            return self.posts[0]
+        else:
+            return self.posts[current_post_index + 1]
+
+    @log
+    def get_prev_post(self):
+        post_urls = [Post(x).url for x in self.posts]
+        try:
+            current_post_index = post_urls.index(self.current_post_url)
+        except ValueError:
+            return self.posts[-1]
+        else:
+            return self.posts[current_post_index - 1]
+
+    @log
     def setup_layout(self):
         scrolledWindow = Gtk.ScrolledWindow()
 
@@ -116,6 +136,13 @@ class GenericFeedsView(Gtk.Stack):
 
 
 class FeedView(Gtk.Stack):
+
+    __gsignals__ = {
+        'go-back': (GObject.SignalFlags.RUN_FIRST, None, ()),
+        'show-prev-post': (GObject.SignalFlags.RUN_FIRST, None, ()),
+        'show-next-post': (GObject.SignalFlags.RUN_FIRST, None, ()),
+    }
+
     def __init__(self, tracker, post):
         Gtk.Stack.__init__(self,
                            transition_type=Gtk.StackTransitionType.CROSSFADE)
@@ -153,6 +180,7 @@ class FeedView(Gtk.Stack):
         self.add(webview)
         self.show_all()
 
+        webview.connect('key_press_event', self.on_key_press)
         self.post = post
         self.url = post.url
 
@@ -171,6 +199,20 @@ class FeedView(Gtk.Stack):
                 return True
         return False
 
+    @log
+    def on_key_press(self, widget, event):
+        # Return to previous view when Esc is pressed
+        if event.keyval == Gdk.KEY_Escape:
+            self.emit('go-back')
+
+        # Show previous post (if available) if Left (arrow) is pressed
+        elif event.keyval in [Gdk.KEY_leftarrow, Gdk.KEY_Left]:
+            self.emit('show-prev-post')
+
+        # Show previous post (if available) if Right (arrow) is pressed
+        elif event.keyval in [Gdk.KEY_rightarrow, Gdk.KEY_Right]:
+            self.emit('show-next-post')
+
 
 class NewView(GenericFeedsView):
     def __init__(self, tracker):
@@ -182,11 +224,11 @@ class NewView(GenericFeedsView):
     def update(self, _=None):
         [self.flowbox.remove(old_feed) for old_feed in self.flowbox.get_children()]
 
-        posts = self.tracker.get_post_sorted_by_date(unread=True)
-        [self._add_a_new_preview(post) for post in posts]
+        self.posts = self.tracker.get_post_sorted_by_date(unread=True)
+        [self._add_a_new_preview(post) for post in self.posts]
         self.show_all()
 
-        self.show_empty_view(len(posts) is 0)
+        self.show_empty_view(len(self.posts) is 0)
 
 
 class FeedsView(GenericFeedsView):
@@ -321,7 +363,9 @@ class FeedsView(GenericFeedsView):
     @log
     def _on_row_selected(self, listbox, row, _=None):
         if row:
-            self.feed_stack.set_visible_child_name(row.feed['url'])
+            url = row.feed['url']
+            self.feed_stack.set_visible_child_name(url)
+            self.posts = self.tracker.get_posts_for_channel(url)
 
     @log
     def _on_button_release(self, w, event):
@@ -377,11 +421,11 @@ class StarredView(GenericFeedsView):
     def update(self, _=None):
         [self.flowbox.remove(old_feed) for old_feed in self.flowbox.get_children()]
 
-        posts = self.tracker.get_post_sorted_by_date(starred=True)
-        [self._add_a_new_preview(post) for post in posts]
+        self.posts = self.tracker.get_post_sorted_by_date(starred=True)
+        [self._add_a_new_preview(post) for post in self.posts]
         self.show_all()
 
-        self.show_empty_view(len(posts) is 0)
+        self.show_empty_view(len(self.posts) is 0)
 
 
 class SearchView(GenericFeedsView):

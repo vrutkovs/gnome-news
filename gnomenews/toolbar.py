@@ -161,11 +161,10 @@ class Toolbar(GObject.GObject):
         self.add_popover.hide()
 
     @log
-    def _update_title(self, view, post):
+    def _update_title(self, post):
         self.set_state(ToolbarState.CHILD_VIEW)
         self.header_bar.set_title(post.title)
         self.header_bar.set_subtitle(post.author)
-        self.window._open_article_view(post)
 
     def on_new_url_changed(self, entry):
         text = self.new_url.get_text()
