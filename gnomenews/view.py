@@ -290,7 +290,11 @@ class FeedsView(GenericFeedsView):
         row.show_all()
 
         self.listbox.add(row)
+        self.feeds[feed['url']] = (feed, row)
 
+    @log
+    def load_posts_for_feed(self, row):
+        feed = row.feed
         # Add a flowbox with the items
         flowbox = Gtk.FlowBox(
             min_children_per_line=2,
@@ -312,8 +316,6 @@ class FeedsView(GenericFeedsView):
         if not feed['title']:
             feed['title'] = _("Unknown feed")
         self.feed_stack.add_titled(flowbox, feed['url'], feed['title'])
-
-        self.feeds[feed['url']] = (feed, row)
 
     @log
     def delete_channel(self, action, index_variant):
@@ -364,6 +366,9 @@ class FeedsView(GenericFeedsView):
     def _on_row_selected(self, listbox, row, _=None):
         if row:
             url = row.feed['url']
+            loaded_urls = [x.feed['url'] for x in self.feed_stack.get_children()]
+            if url not in loaded_urls:
+                self.load_posts_for_feed(row)
             self.feed_stack.set_visible_child_name(url)
             self.posts = self.tracker.get_posts_for_channel(url)
 
